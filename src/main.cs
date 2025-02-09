@@ -6,6 +6,4 @@ Console.Write("$ ");
 
 // Wait for user input
 string input = Console.ReadLine();
-if (input == "invalid_command"){
-    Console.Write("invalid_command: command not found");
-}
+Console.Write("invalid_command: command not found");
