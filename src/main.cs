@@ -18,7 +18,7 @@ if (input.IndexOf("echo") == 0){
     Console.WriteLine($"{output}");
 }
 else if (input.IndexOf("type") == 0){
-    string output = input.Replace("echo ","");
+    string output = input.Replace("type ","");
     if (output == "type"){
         Console.WriteLine("type is a shell builtin");
     }
