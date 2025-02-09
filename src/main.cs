@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Sockets;
+using System.Xml;
 
 // Uncomment this line to pass the first stage
 string input = "";
@@ -11,6 +12,10 @@ Console.Write("$ ");
 input = Console.ReadLine();
 if (input == "exit 0"){
     break;
+}
+if (input.IndexOf("echo") == 0){
+    string output = input.Replace("echo","");
+    Console.WriteLine($"{output}");
 }
 Console.WriteLine($"{input}: command not found");
 }
