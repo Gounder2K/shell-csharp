@@ -30,7 +30,7 @@ while (input != "exit 0"){
             Console.WriteLine("exit is a shell builtin");
         }
         else{
-            Console.WriteLine($"{output}: command not found");
+            Console.WriteLine($"{output}: not found");
         }
         
     }
