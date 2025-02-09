@@ -6,28 +6,33 @@ using System.Xml;
 string input = "";
 while (input != "exit 0"){
 
-Console.Write("$ ");
+    Console.Write("$ ");
 
-// Wait for user input
-input = Console.ReadLine();
-if (input == "exit 0"){
-    break;
-}
-if (input.IndexOf("echo") == 0){
-    string output = input.Replace("echo ","");
-    Console.WriteLine($"{output}");
-}
-else if (input.IndexOf("type") == 0){
-    string output = input.Replace("type ","");
-    if (output == "type"){
-        Console.WriteLine("type is a shell builtin");
+    // Wait for user input
+    input = Console.ReadLine();
+
+    if (input == "exit 0"){
+        break;
     }
-    if (output == "echo"){
-        Console.WriteLine("echo is a shell builtin");
+    if (input.IndexOf("echo") == 0){
+        string output = input.Replace("echo ","");
+        Console.WriteLine($"{output}");
+    }
+    else if (input.IndexOf("type") == 0){
+        string output = input.Replace("type ","");
+        if (output == "type"){
+            Console.WriteLine("type is a shell builtin");
+        }
+        if (output == "echo"){
+            Console.WriteLine("echo is a shell builtin");
+        }
+        if (output == "exit"){
+            Console.WriteLine("exit is a shell builtin");
+        }
+        
+    }
+    else{
+        Console.WriteLine($"{input}: command not found");
     }
     
-}
-else{
-    Console.WriteLine($"{input}: command not found");
-}
 }
