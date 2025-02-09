@@ -3,7 +3,7 @@ using System.Net.Sockets;
 
 // Uncomment this line to pass the first stage
 string input = "";
-while (input != "exit"){
+while (input != "exit 0"){
 
 Console.Write("$ ");
 
