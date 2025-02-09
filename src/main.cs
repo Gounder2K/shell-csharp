@@ -17,6 +17,16 @@ if (input.IndexOf("echo") == 0){
     string output = input.Replace("echo ","");
     Console.WriteLine($"{output}");
 }
+else if (input.IndexOf("type") == 0){
+    string output = input.Replace("echo ","");
+    if (output == "type"){
+        Console.WriteLine("type is a shell builtin");
+    }
+    if (output == "echo"){
+        Console.WriteLine("echo is a shell builtin");
+    }
+    
+}
 else{
     Console.WriteLine($"{input}: command not found");
 }
