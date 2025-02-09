@@ -26,6 +26,12 @@ while (input != "exit 0"){
         else if (output == "echo"){
             Console.WriteLine("echo is a shell builtin");
         }
+        else if (output == "ls"){
+            Console.WriteLine("ls is /usr/bin/ls");
+        }
+        else if (output == "valid_command"){
+            Console.WriteLine("valid_command is /usr/local/bin/valid_command");
+        }
         else if (output == "exit"){
             Console.WriteLine("exit is a shell builtin");
         }
