@@ -23,11 +23,14 @@ while (input != "exit 0"){
         if (output == "type"){
             Console.WriteLine("type is a shell builtin");
         }
-        if (output == "echo"){
+        else if (output == "echo"){
             Console.WriteLine("echo is a shell builtin");
         }
-        if (output == "exit"){
+        else if (output == "exit"){
             Console.WriteLine("exit is a shell builtin");
+        }
+        else{
+            Console.WriteLine($"{output}: command not found");
         }
         
     }
