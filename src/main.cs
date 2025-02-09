@@ -17,5 +17,7 @@ if (input.IndexOf("echo") == 0){
     string output = input.Replace("echo ","");
     Console.WriteLine($"{output}");
 }
-Console.WriteLine($"{input}: command not found");
+else{
+    Console.WriteLine($"{input}: command not found");
+}
 }
