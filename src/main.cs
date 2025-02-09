@@ -9,5 +9,8 @@ Console.Write("$ ");
 
 // Wait for user input
 input = Console.ReadLine();
+if (input == "exit 0"){
+    break;
+}
 Console.WriteLine($"{input}: command not found");
 }
