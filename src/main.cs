@@ -22,7 +22,7 @@ while (input != "exit 0"){
         string path = "/usr/bin:";
         string output = input.Replace("type ","");
         if(!string.IsNullOrEmpty(Path.GetFileName(output))){
-            Console.WriteLine($"/usr/bin/{output}");
+            Console.WriteLine($"{output} is /bin/{output}");
         }
    
    
