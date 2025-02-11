@@ -23,14 +23,18 @@ while (input != "exit 0"){
         if(!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PATH"))){
             string fullpath = Environment.GetEnvironmentVariable("PATH");
             var pathsArray = fullpath.Split(':');
+            bool found = false;
             foreach (var path in pathsArray){
                 if (File.Exists($"{path}/{output}")){
+                    found = true;
                     Console.WriteLine($"{output} is {path}/{output}");
-                    break;
+                    return;
                 }
             }
 
-            Console.WriteLine($"{output}: not found");
+            if (found != true){
+                Console.WriteLine($"{output}: not found");
+            }
         }
    
    
