@@ -29,8 +29,9 @@ while (input != "exit 0"){
                     Console.WriteLine($"{output} is {path}/{output}");
                     break;
                 }
-            } 
-            // Console.WriteLine($"{output} is {fullpath}");
+            }
+
+            Console.WriteLine($"{output}: not found");
         }
    
    
