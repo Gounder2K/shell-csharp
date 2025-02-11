@@ -19,8 +19,15 @@ while (input != "exit 0"){
         Console.WriteLine($"{output}");
     }
     else if (input.IndexOf("type") == 0){
-        string path = "/usr/bin:/usr/local/bin";
+        string path = "/usr/bin:";
         string output = input.Replace("type ","");
+        if(Path.GetFileName(output)){
+            Console.WriteLine($"{path}/{output}");
+        }
+        else{
+            output = "not found";
+
+        }
         if (output == "type"){
             Console.WriteLine("type is a shell builtin");
         }
