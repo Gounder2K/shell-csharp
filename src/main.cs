@@ -24,7 +24,7 @@ while (input != "exit 0"){
         if (output == "type"){
             Console.WriteLine("type is a shell builtin");
         }
-        else if (output == "echo"){
+        else if (output == "echo"){`
             Console.WriteLine("echo is a shell builtin");
         }
         else if (output == "ls"){
@@ -35,6 +35,9 @@ while (input != "exit 0"){
         }
         else if (output == "exit"){
             Console.WriteLine("exit is a shell builtin");
+        }
+        else if (output == "cat"){
+            Console.WriteLine("cat is /bin/cat");
         }
         else{
             Console.WriteLine($"{output}: not found");
