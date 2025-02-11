@@ -22,7 +22,6 @@ while (input != "exit 0"){
         string output = input.Replace("type ","");
         if(!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PATH"))){
             string fullpath = Environment.GetEnvironmentVariable("PATH");
-            fullpath = fullpath.Replace("/usr/bin:","");
             var pathsArray = fullpath.Split(':');
             foreach (var path in pathsArray){
                 if (File.Exists($"{path}/{output}")){
