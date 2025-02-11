@@ -19,10 +19,10 @@ while (input != "exit 0"){
         Console.WriteLine($"{output}");
     }
     else if (input.IndexOf("type") == 0){
-        string path = "/usr/bin:";
         string output = input.Replace("type ","");
         if(!string.IsNullOrEmpty(Path.GetFileName(output))){
             string fullpath = Path.GetFullPath(output);
+            fullpath = fullpath.Replace("app","bin");
             Console.WriteLine($"{output} is {fullpath}");
         }
    
