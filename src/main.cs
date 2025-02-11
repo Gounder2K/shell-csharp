@@ -20,9 +20,9 @@ while (input != "exit 0"){
     }
     else if (input.IndexOf("type") == 0){
         string output = input.Replace("type ","");
-        if(!string.IsNullOrEmpty(Path.GetFileName(output))){
-            string fullpath = Path.GetFullPath(output);
-            fullpath = fullpath.Replace("app","bin");
+        if(!string.IsNullOrEmpty(GetEnvironmentVariable("PATH"))){
+            string fullpath = GetEnvironmentVariable("PATH");
+            fullpath = fullpath.Replace("/usr/bin:","");
             Console.WriteLine($"{output} is {fullpath}");
         }
    
