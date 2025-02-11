@@ -23,7 +23,14 @@ while (input != "exit 0"){
         if(!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PATH"))){
             string fullpath = Environment.GetEnvironmentVariable("PATH");
             fullpath = fullpath.Replace("/usr/bin:","");
-            Console.WriteLine($"{output} is {fullpath}");
+            var pathsArray = fullpath.Split(':');
+            foreach (var path in pathsArray){
+                if (File.Exists($"{path}/{output}")){
+                    Console.WriteLine($"{output} is {path}/{output}");
+                    break;
+                }
+            } 
+            // Console.WriteLine($"{output} is {fullpath}");
         }
    
    
