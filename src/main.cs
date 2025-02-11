@@ -28,7 +28,7 @@ while (input != "exit 0"){
                 if (File.Exists($"{path}/{output}")){
                     found = true;
                     Console.WriteLine($"{output} is {path}/{output}");
-                    return;
+                    break;
                 }
             }
 
