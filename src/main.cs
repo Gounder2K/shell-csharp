@@ -41,9 +41,6 @@ while (input != "exit 0"){
         else if (output == "exit"){
             Console.WriteLine("exit is a shell builtin");
         }
-        else if (output == "cat"){
-            Console.WriteLine("cat is /bin/cat");
-        }
         else{
             Console.WriteLine($"{output}: not found");
         }
