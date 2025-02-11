@@ -20,7 +20,23 @@ while (input != "exit 0"){
     }
     else if (input.IndexOf("type") == 0){
         string output = input.Replace("type ","");
-        if(!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PATH"))){
+   
+        if (output == "type"){
+            Console.WriteLine("type is a shell builtin");
+        }
+        else if (output == "echo"){
+            Console.WriteLine("echo is a shell builtin");
+        }
+        else if (output == "ls"){
+            Console.WriteLine("ls is /usr/bin/ls");
+        }
+        else if (output == "valid_command"){
+            Console.WriteLine("valid_command is /usr/local/bin/valid_command");
+        }
+        else if (output == "exit"){
+            Console.WriteLine("exit is a shell builtin");
+        }
+        else if(!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PATH"))){
             string fullpath = Environment.GetEnvironmentVariable("PATH");
             var pathsArray = fullpath.Split(':');
             bool found = false;
@@ -37,22 +53,6 @@ while (input != "exit 0"){
             }
         }
    
-   
-        else if (output == "type"){
-            Console.WriteLine("type is a shell builtin");
-        }
-        else if (output == "echo"){
-            Console.WriteLine("echo is a shell builtin");
-        }
-        else if (output == "ls"){
-            Console.WriteLine("ls is /usr/bin/ls");
-        }
-        else if (output == "valid_command"){
-            Console.WriteLine("valid_command is /usr/local/bin/valid_command");
-        }
-        else if (output == "exit"){
-            Console.WriteLine("exit is a shell builtin");
-        }
         else{
             Console.WriteLine($"{output}: not found");
         }
