@@ -1,6 +1,7 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Xml;
+using System.Diagnostics;
 
 // Uncomment this line to pass the first stage
 string input = "";
@@ -43,10 +44,17 @@ while (input != "exit 0"){
             foreach (var path in pathsArray){
                 if (File.Exists($"{path}/{output}")){
                     found = true;
+                    using var process = new Process();
+                    process.StartInfo.FileName = exe;
+                    process.StartInfo.Arguments = string.Join(" ", output.Skip(1).ToArray());
+                    process.Start();
+//   return true;
                     Console.WriteLine($"{output} is {path}/{output}");
                     break;
                 }
             }
+
+
 
             if (found != true){
                 Console.WriteLine($"{output}: not found");
