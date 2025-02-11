@@ -26,7 +26,7 @@ while (input != "exit 0"){
         }
    
    
-        if (output == "type"){
+        else if (output == "type"){
             Console.WriteLine("type is a shell builtin");
         }
         else if (output == "echo"){
