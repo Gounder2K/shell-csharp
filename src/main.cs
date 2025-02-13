@@ -44,11 +44,6 @@ while (input != "exit 0"){
             foreach (var path in pathsArray){
                 if (File.Exists($"{path}/{output}")){
                     found = true;
-                    using var process = new Process();
-                    process.StartInfo.FileName = "exe";
-                    process.StartInfo.Arguments = string.Join(" ", output.Skip(1).ToArray());
-                    process.Start();
-//   return true;
                     Console.WriteLine($"{output} is {path}/{output}");
                     break;
                 }
@@ -66,6 +61,28 @@ while (input != "exit 0"){
         }
         
     }
+     else if(!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PATH"))){
+            string fullpath = Environment.GetEnvironmentVariable("PATH");
+            var pathsArray = fullpath.Split(':');
+            bool found = false;
+            foreach (var path in pathsArray){
+                if (File.Exists($"{path}/{input}")){
+                    found = true;
+                    using var process = new Process();
+                    process.StartInfo.FileName = "exe";
+                    process.StartInfo.Arguments = string.Join(" ", input.Skip(1).ToArray());
+                    process.Start();
+                    Console.WriteLine($"{input} is {path}/{input}");
+                    break;
+                }
+            }
+
+
+
+            if (found != true){
+                Console.WriteLine($"{output}: not found");
+            }
+        }
     else{
         Console.WriteLine($"{input}: command not found");
     }
