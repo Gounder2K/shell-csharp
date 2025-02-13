@@ -80,7 +80,7 @@ while (input != "exit 0"){
 
 
             if (found != true){
-                Console.WriteLine($"{output}: not found");
+                Console.WriteLine($"{input}: not found");
             }
         }
     else{
