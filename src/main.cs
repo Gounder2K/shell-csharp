@@ -45,7 +45,7 @@ while (input != "exit 0"){
                 if (File.Exists($"{path}/{output}")){
                     found = true;
                     using var process = new Process();
-                    process.StartInfo.FileName = exe;
+                    process.StartInfo.FileName = "exe";
                     process.StartInfo.Arguments = string.Join(" ", output.Skip(1).ToArray());
                     process.Start();
 //   return true;
