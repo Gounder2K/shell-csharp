@@ -7,7 +7,7 @@ using System.Diagnostics;
 string input = "";
 while (input != "exit 0"){
 
-    Console.Write("$ ");
+    Console.Write("custom_exe_7800 David ");
 
     // Wait for user input
     input = Console.ReadLine();
@@ -49,43 +49,41 @@ while (input != "exit 0"){
                 }
             }
 
-
-
             if (found != true){
                 Console.WriteLine($"{output}: not found");
             }
         }
-   
         else{
             Console.WriteLine($"{output}: not found");
         }
-        
     }
-     else if(!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PATH"))){
-            string fullpath = Environment.GetEnvironmentVariable("PATH");
-            var pathsArray = fullpath.Split(':');
-            bool found = false;
-            Console.WriteLine(fullpath);
-            foreach (var path in pathsArray){
-                if (File.Exists($"{input}.exe")){
-                    found = true;
-                    using var process = new Process();
-                    process.StartInfo.FileName = $"{input}.exe";
-                    process.StartInfo.Arguments = string.Join(" ", input.Skip(1).ToArray());
-                    process.Start();
-                    Console.WriteLine($"{input} is {path}/{input}");
-                    break;
-                }
-            }
-
-
-
-            if (found != true){
-                Console.WriteLine($"{input}: not found");
+    else if(!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PATH"))){
+        string fullpath = Environment.GetEnvironmentVariable("PATH");
+        var pathsArray = fullpath.Split(':');
+        bool found = false;
+        foreach (var path in pathsArray){
+            if (File.Exists($"{path}/{input.Split(' ')[0]}")){
+                found = true;
+                using var process = new Process();
+                process.StartInfo.FileName = $"{path}/{input.Split(' ')[0]}";
+                process.StartInfo.Arguments = string.Join(" ", input.Split(' ').Skip(1));
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.RedirectStandardError = true;
+                process.Start();
+                string output = process.StandardOutput.ReadToEnd();
+                string error = process.StandardError.ReadToEnd();
+                process.WaitForExit();
+                Console.Write(output);
+                Console.Write(error);
+                break;
             }
         }
+
+        if (found != true){
+            Console.WriteLine($"{input}: not found");
+        }
+    }
     else{
         Console.WriteLine($"{input}: command not found");
     }
-    
-} 
+}
