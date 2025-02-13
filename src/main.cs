@@ -67,10 +67,10 @@ while (input != "exit 0"){
             bool found = false;
             Console.WriteLine(fullpath);
             foreach (var path in pathsArray){
-                if (File.Exists($"{input}")){
+                if (File.Exists($"{input}.exe")){
                     found = true;
                     using var process = new Process();
-                    process.StartInfo.FileName = "exe";
+                    process.StartInfo.FileName = $"{input}.exe";
                     process.StartInfo.Arguments = string.Join(" ", input.Skip(1).ToArray());
                     process.Start();
                     Console.WriteLine($"{input} is {path}/{input}");
