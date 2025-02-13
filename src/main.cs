@@ -65,7 +65,7 @@ while (input != "exit 0"){
             string fullpath = Environment.GetEnvironmentVariable("PATH");
             var pathsArray = fullpath.Split(':');
             bool found = false;
-            Console.WriteLine(input);
+            Console.WriteLine(fullpath);
             foreach (var path in pathsArray){
                 if (File.Exists($"{input}")){
                     found = true;
