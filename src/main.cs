@@ -66,7 +66,7 @@ while (input != "exit 0"){
             var pathsArray = fullpath.Split(':');
             bool found = false;
             foreach (var path in pathsArray){
-                if (File.Exists($"{path}/{input}")){
+                if (File.Exists($"{input}")){
                     found = true;
                     using var process = new Process();
                     process.StartInfo.FileName = "exe";
